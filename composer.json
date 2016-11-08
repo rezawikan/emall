@@ -1,0 +1,8 @@
+{
+  "autoload" : {
+    "psr-4" : {"Emall\\": "classes/"}
+  },
+  "require": {
+    "phpmailer/phpmailer": "^5.2"
+  }
+}
