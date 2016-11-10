@@ -1,10 +1,11 @@
 <?php
 
-
-
 namespace Emall\Auth;
 
-use Emall\DB\Database;
+use Emall\Database\Database;
+use Emall\Auth\Session;
+use Emall\Auth\Redirect;
+use Emall\Email\Email;
 
 class Authentication
 {

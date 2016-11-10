@@ -1,10 +1,12 @@
 <?php
 session_start();
-require_once '../../autoloader.php';
+require_once '../../vendor/autoload.php';
 
-$seller = new Bank();
+use Emall\Transaction\Bank;
+use Emall\Auth\Redirect;
 
-$home_url = '../../../index.php';
+$seller   = new Bank;
+$home_url = '../../index.php';
 
 if (isset($_POST['seller_bankID'])) {
     $seller_bankID = $_POST['seller_bankID'];

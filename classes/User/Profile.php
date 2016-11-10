@@ -2,7 +2,7 @@
 
 namespace Emall\User;
 use PDO;
-use Emall\DB\Database;
+use Emall\Database\Database;
 
 class Profile
 {

@@ -7,28 +7,24 @@
     <title>EMall | Sign Up</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Animation CSS -->
-    <link href="../css/animate.css" rel="stylesheet">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Animation CSS -->
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
+    <!-- Plugins CSS iCheck -->
+     <link rel="stylesheet" href="assets/css/plugins/iCheck/custom.css">
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 
     <!-- FormValidation CSS file -->
     <link rel="stylesheet" href="assets/css/formValidation.min.css">
 
     <!-- Ladda style -->
     <link rel="stylesheet" href="assets/css/plugins/ladda/ladda-themeless.min.css">
-
 
 </head>
 
@@ -85,7 +81,7 @@
 
     <!-- FormValidation plugin and the class supports validating Bootstrap form -->
     <script src="assets/js/formValidation.min.js"></script>
-    <script src="../js/framework/bootstrap.min.js"></script>
+    <script src="assets/js/framework/bootstrap.min.js"></script>
 
      <!-- Ladda -->
     <script src="assets/js/plugins/ladda/spin.min.js"></script>
@@ -93,7 +89,7 @@
     <script src="assets/js/plugins/ladda/ladda.jquery.min.js"></script>
 
     <!-- Handle Signup -->
-    <script src="js/signup.js"></script>
+    <script src="assets/js/custom/signup.js"></script>
 
 </body>
 

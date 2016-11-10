@@ -1,10 +1,13 @@
 <?php
 session_start();
-require_once '../../autoloader.php';
+require_once '../../vendor/autoload.php';
 
-$home_url = '../../../index.php';
+use Emall\Transaction\Withdrawal;
+use Emall\Auth\Redirect;
 
-$seller = new Withdrawal();
+$home_url = '../../index.php';
+$seller   = new Withdrawal;
+
 if (isset($_POST['sellerID'])) {
     $sellerID = $_POST['sellerID'];
     $seller->getDataWithdrawal($sellerID);

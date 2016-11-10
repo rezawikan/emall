@@ -24,6 +24,10 @@
                           ->select('categories.categoryName, categories.categoriesID','DISTINCT')
                           ->all();
 
+                          if($categories == null){
+                            echo "<li class='dropdown-submenu'><a tabindex='-1' href='#'>You don't have product, Let's add your product</a>";
+                          }
+
                           foreach ($categories as $index => $category) {
                             $seller->setTable('sub_categories');
                             $sub_categories = $seller->join('product','sub_categories.subcategoriesID','=','product.subcategoriesID')

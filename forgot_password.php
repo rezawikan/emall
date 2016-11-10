@@ -69,7 +69,7 @@
 
     <!-- Mainly scripts -->
     <script src="assets/js/jquery-2.2.3.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- FormValidation plugin and the class supports validating Bootstrap form -->
     <script src="assets/js/formValidation.min.js"></script>
@@ -81,7 +81,7 @@
     <script src="assets/js/plugins/ladda/ladda.jquery.min.js"></script>
 
     <!-- Forgot Password JS-->
-    <script src="js/forgot_password.js"></script>
+    <script src="assets/js/custom/forgot_password.js"></script>
 
 </body>
 

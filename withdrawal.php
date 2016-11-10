@@ -1,4 +1,4 @@
-<?php require_once 'views/data.php'; ?>
+<?php require_once 'templates/data.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
 
 </head>
 
-<?php require_once 'views/header.php'; ?>
+<?php require_once 'templates/header.php'; ?>
 
 <section class="container top-container">
     <div class="row">
@@ -94,16 +94,33 @@
                                         <p>Make sure your data</p>
 
                                         <form role="form" id="form-data-add" method="POST">
-                                            <div class="form-group"><label>Bank Name</label>
-                                                <select class="form-control m-b" name="seller_bankID">
-                                                    <option value="">Select</option>
-                                                </select>
-                                            </div>
-                                            <div  class="form-group"><label for="accountNumber">Account Number</label> <input type="text" placeholder="Account Number" name="accountNumber" class="form-control" disabled></div>
-                                            <div  class="form-group"><label for="ownerName">Owner Name</label> <input type="text" placeholder="Owner Name" name="ownerName" class="form-control" disabled></div>
-                                            <div class="form-group" disabled><label>Amount</label> <input type="number" placeholder="Amount" name="amount" class="form-control"></div>
-                                                <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-add">OK</button>
-                                                <button class="btn btn-sm btn-primary" type="submit" id="cancel-btn-withdrawal">Cancel</button>
+                                          <div class="form-group"><label>Bank Name</label>
+                                              <select class="form-control m-b" name="seller_bankID">
+                                                  <option value="">Select</option>
+                                              </select>
+                                          </div>
+                                          <div  class="form-group">
+                                            <!-- Hidden Input -->
+                                            <input type="hidden" placeholder="Account Number" name="bankName" class="form-control">
+                                          </div>
+                                          <div  class="form-group">
+                                            <label for="accountNumber">Account Number</label>
+                                            <input type="text" placeholder="Account Number" name="accountNumber" class="form-control">
+                                          </div>
+                                          <div  class="form-group">
+                                            <label for="accountNumber">Branch</label>
+                                            <input type="text" placeholder="Branch" name="branch" class="form-control">
+                                          </div>
+                                          <div  class="form-group">
+                                            <label for="ownerName">Owner Name</label>
+                                            <input type="text" placeholder="Owner Name" name="ownerName" class="form-control" >
+                                          </div>
+                                          <div class="form-group">
+                                            <label>Amount</label>
+                                            <input type="number" placeholder="Amount" name="amount" class="form-control">
+                                          </div>
+                                          <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-add">OK</button>
+                                          <button class="btn btn-sm btn-primary" type="submit" id="cancel-btn-withdrawal">Cancel</button>
                                         </form>
                                     </div>
                                 </div>
@@ -115,7 +132,7 @@
 
 </section>
 
-<?php require_once 'views/footer.php'; ?>
+<?php require_once 'templates/footer.php'; ?>
 
 <!-- Mainly scripts -->
 <script src="assets/js/jquery-3.1.0.min.js"></script>
@@ -141,10 +158,10 @@
 <script src="assets/js/plugins/footable/footable.all.min.js"></script>
 
 <!-- Handle CRUD Data Bank -->
-<script src="js/withdrawal.js"></script>
+<script src="assets/js/custom/withdrawal.js"></script>
 
 <!-- Custom Js -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom/custom.js"></script>
 
 </body>
 </html>

@@ -3,8 +3,8 @@ session_start();
 require_once 'vendor/autoload.php';
 
 use Emall\Auth\Authentication;
-use Emall\DB\Database;
-use Emall\User\Balance;
+use Emall\Database\Database;
+use Emall\Transaction\Balance;
 use Emall\Auth\Redirect;
 
 

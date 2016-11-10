@@ -160,10 +160,10 @@
 <script src="assets/js/plugins/footable/footable.all.min.js"></script>
 
 <!-- Handle CRUD Data Bank -->
-<script src="js/profile.js"></script>
+<script src="assets/js/custom/profile.js"></script>
 
 <!-- Custom Js -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom/custom.js"></script>
 
 </body>
 </html>

@@ -5,11 +5,12 @@
 
   use Emall\Auth\Authentication;
   use Emall\Auth\Token;
+  use Emall\Auth\Redirect;
 
   $seller_login = new Authentication;
 
   if($seller_login->is_logged_in()){
-      $seller_login->redirect("home.php");
+      Redirect::to("home.php");
   }
 
   ?>
@@ -86,7 +87,7 @@
     <script src="assets/js/plugins/ladda/ladda.jquery.min.js"></script>
 
     <!-- Login JS-->
-    <script src="js/login.js"></script>
+    <script src="assets/js/custom/login.js"></script>
 </body>
 
 </html>

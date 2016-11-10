@@ -1,10 +1,15 @@
 <?php
 session_start();
+require_once '../../vendor/autoload.php';
 
-require_once '../../autoloader.php';
-$home_url = '../../../index.php';
+use Emall\Database\Database;
+use Emall\Files\ImagesProduct;
+use Emall\Auth\Session;
+use Emall\Auth\Redirect;
+
+$home_url = '../../index.php';
 $update = Database::getInstance();
-$upload = new FileUploader;
+$upload = new ImagesProduct;
 $id     = Session::get('sellerSession');
 $images = $_FILES;
 $status = [];
@@ -48,31 +53,3 @@ if ($_POST) {
 }else {
   Redirect::to($home_url); // for direct acces to this file
 }
-
-// foreach ($images as $image) {
-//   $filename = $image['name'];
-//   $fileType = $image['type'];
-//   $tmp_file = $image['tmp_name'];
-//   $error    = $image['error'];
-//   $size     = $image['size'];
-//
-//   // $type = ['image/jpg','image/jpeg','']
-//
-//   if($fileType === 'image/jpg'){
-//     if(!file_exists($filename)){
-//       $file_name = str_replace(".JPG", "", $filename);
-//     }
-//
-//   }
-//
-//
-//   $random       = time();
-//   $extension    = pathinfo($filename, PATHINFO_EXTENSION);
-//   $new_filename = $filename . "_" . $random . "." . $extension;
-//   $filepath     = "uploads/products/" . $new_filename;
-//   var_dump($new_filename);
-//   // var_dump($file_name);
-//   // var_dump($images);
-//
-//   //
-// }

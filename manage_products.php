@@ -1,4 +1,4 @@
-<?php require_once 'views/data.php'; ?>
+<?php require_once 'templates/data.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
 
 </head>
 
-<?php require_once 'views/header.php'; ?>
+<?php require_once 'templates/header.php'; ?>
 
 <section class="container top-container">
     <div class="row wrapper border-bottom white-bg page-heading">
@@ -74,7 +74,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                          <td colspan="7">
+                          <td colspan="9">
                             <ul class="pagination pull-right"></ul>
                           </td>
                         </tr>
@@ -106,7 +106,7 @@
     <!-- End Modals Confirmation Delete-->
 </section>
 
-<?php require_once 'views/footer.php'; ?>
+<?php require_once 'templates/footer.php'; ?>
 
 <!-- Mainly scripts -->
 <script src="assets/js/jquery-3.1.0.min.js"></script>
@@ -132,10 +132,10 @@
 <script src="assets/js/plugins/footable/footable.all.min.js"></script>
 
 <!-- Handle CRUD Data Bank -->
-<script src="js/manage_products.js"></script>
+<script src="assets/js/custom/manage_products.js"></script>
 
 <!-- Custom Js -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom/custom.js"></script>
 
 </body>
 </html>

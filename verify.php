@@ -1,15 +1,17 @@
 <?php
-    require_once 'autoloader.php';
+    require_once 'vendor/autoload.php';
 
-    $newSeller = new Authentication();
+    use Emall\Auth\Authentication;
+
+    $user = new Authentication;
 
     if(empty($_GET['id']) && empty($_GET['code'])){
-        $newSeller->redirect('index.php');
+        $user->redirect('index.php');
     }else if(isset($_GET['id']) && isset($_GET['code'])){
         $id = base64_decode($_GET['id']);
         $code = ($_GET['code']);
 
-        if($newSeller->verify($id, $code) == true){
+        if($user->verify($id, $code) == true){
             $msg =  "
                     <div class='alert alert-success'>
                         <p>Your Account is <strong>ACTIVE</strong> Now!<p>
@@ -37,14 +39,14 @@
     <title>E-Mall | Sign In</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Animation CSS -->
-    <link href="../css/animate.css" rel="stylesheet">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 

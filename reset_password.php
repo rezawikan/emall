@@ -80,8 +80,7 @@
     <script src="assets/js/plugins/ladda/ladda.jquery.min.js"></script>
 
     <!-- Reset Password JS -->
-    <script src="js/reset_password.js"></script>
+    <script src="assets/js/custom/reset_password.js"></script>
 
 </body>
-
 </html>

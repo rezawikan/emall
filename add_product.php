@@ -108,10 +108,10 @@
 <script src="assets/js/plugins/ladda/ladda.jquery.min.js"></script>
 
 <!-- Handle CRUD Data Bank -->
-<!-- <script src="js/add_product.js"></script> -->
+<script src="assets/js/custom/add_product.js"></script>
 
 <!-- Custom Js -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom/custom.js"></script>
 
 </body>
 </html>

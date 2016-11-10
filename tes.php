@@ -1,36 +1,61 @@
 <?php
 session_start();
-require_once 'autoloader.php';
+require_once 'vendor/autoload.php';
 
-$seller = Database::getInstance();
-$a = new FileUploader();
-
-$id = Session::get('sellerSession');
-
-$seller->setTable('categories');
-
-$seller->setTable('categories');
-$categories = $seller->join('sub_categories','categories.categoriesID','=','sub_categories.categoriesID')
-->join('product','sub_categories.subcategoriesID','=','product.subcategoriesID')
-->join('product_images','product.productID','=','product_images.product_id')
-->where('product.sellerID','=',Session::get('sellerSession'))
-->where('product_images.status','=','main')
-->select('categories.categoryName,product.productID, product.productName, product_images.image_name, product.productPrice, product.productQty, product.productWeight')
-->all();
-foreach ($categories as $key => $category) {
-  var_dump($key);
-  echo " Ketegori : {$category->categoryName} <br/>";
-  echo " Nama : {$category->productName} <br/>";
-  echo " Nama : {$category->image_name} <br/>";
-  echo "~~~~~~~~~~~~~~~ <br/>";
-}
+use Emall\Auth\Authentication as Auth;
+use Emall\Auth\Redirect;
 
 
-for($i=0;$i<3;$i++){
-  echo $i ."<br />";
-}?>
+    $mail = new PHPMailer;
+    //$mail->SMTPDebug = 3;                               	// Enable verbose debug output
+    $mail->isSMTP();                                      	// Set mailer to use SMTP
+    $mail->Host = 'smtp.gmail.com';  						// Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               	// Enable SMTP authentication
+    $mail->Username = 'tuantiket.id@gmail.com';             // SMTP username
+    $mail->Password = 'qwerty!@#$%';                        // SMTP password
+    $mail->SMTPSecure = 'ssl';                            	// Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    	// TCP port to connect to
+    $mail->setFrom('tuantiket.id@gmail.com', 'Emall');		// Add Sender
+    $mail->addAddress('');     							// Add a recipient
+    //$mail->addAddress('ellen@example.com');               // Name is optional
+    $mail->addReplyTo('tuantiket.id@gmail.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+    $mail->isHTML(true);                                  	// Set email format to HTML
+    $mail->Subject = "";
+    $mail->Body    = "";
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    //$mail->send();
 
-<img src="" alt="" />
+  $mail->send();
+
+// $id = Session::get('sellerSession');
+//
+// $seller->setTable('categories');
+//
+// $seller->setTable('categories');
+// $categories = $seller->join('sub_categories','categories.categoriesID','=','sub_categories.categoriesID')
+// ->join('product','sub_categories.subcategoriesID','=','product.subcategoriesID')
+// ->join('product_images','product.productID','=','product_images.product_id')
+// ->where('product.sellerID','=',Session::get('sellerSession'))
+// ->where('product_images.status','=','main')
+// ->select('categories.categoryName,product.productID, product.productName, product_images.image_name, product.productPrice, product.productQty, product.productWeight')
+// ->all();
+// foreach ($categories as $key => $category) {
+//   var_dump($key);
+//   echo " Ketegori : {$category->categoryName} <br/>";
+//   echo " Nama : {$category->productName} <br/>";
+//   echo " Nama : {$category->image_name} <br/>";
+//   echo "~~~~~~~~~~~~~~~ <br/>";
+// }
+//
+//
+// for($i=0;$i<3;$i++){
+//   echo $i ."<br />";
+// }
+
 // $categories = $seller->select()->all();
 // foreach ($categories as $index => $category) {
 //   echo $category->categoryName . "<br />";

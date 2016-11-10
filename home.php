@@ -317,7 +317,7 @@
 <script src="assets/js/plugins/wow/wow.min.js"></script>
 
 <!-- Custom Js -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom/custom.js"></script>
 
 </body>
 </html>
