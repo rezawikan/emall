@@ -49,20 +49,6 @@ class Bank
 		}
 	}
 
-	public function NumberOfBank($sellerID)
-	{
-		try {
-			$user = $this->conn;
-			$user->setTable('seller_bank');
-			$result = $user->select('sellerID')
-			->where('sellerID','=',$sellerID)
-			->all();
-			return count((array)$result);
-		} catch (PDOException $e){
-				echo "Error : " .$e->message();
-		}
-	}
-
 	// update data seller bank
 	public function updateBank($seller_bankID, $bankID, $accountNumber, $ownerName, $branch)
 	{
@@ -116,6 +102,20 @@ class Bank
 				echo json_encode($result);
 		} catch (PDOException $e) {
 				echo "Error :". $e->message();
+		}
+	}
+
+	public function NumberOfBank($sellerID)
+	{
+		try {
+			$user = $this->conn;
+			$user->setTable('seller_bank');
+			$result = $user->select('sellerID')
+			->where('sellerID','=',$sellerID)
+			->all();
+			return count((array)$result);
+		} catch (PDOException $e){
+				echo "Error : " .$e->message();
 		}
 	}
 }

@@ -46,7 +46,7 @@ $(document).ready(function() {
                   $.each(resultObj, function(key, val) { // looping data
                       number++;
                       var newRow = $("<tr>");
-                      newRow.html("<td>"+number+"</td><td>"+val.categoryName+"</td><td><img src='uploads/product/"+val.image_name+"' alt='' width='160' height='100' /></td><td>"+val.productName+"</td><td>"+number_format(val.productPrice)+"</td><td>"+val.productQty+"</td><td>"+val.productWeight+"</td><td><a data-toggle='modal' class='edit_bank' id='"+val.productID+"' href='#modal-form-update'><i title='Edit' class='fa fa-pencil'></i></a></td><td><a class='delete_bank' id='"+val.productID+"' href='javascript:void(0)'><i title='Delete' class='fa fa-trash'></i></a></td>");
+                      newRow.html("<td>"+number+"</td><td>"+val.categoryName+"</td><td><img src='uploads/product/"+val.image_name+"' alt='' width='160' height='100' /></td><td>"+val.productName+"</td><td>"+number_format(val.productPrice)+"</td><td>"+val.productQty+"</td><td>"+val.productWeight+"</td><td><a data-toggle='modal' class='edit' id='"+val.productID+"' href='#modal-form-update'><i title='Edit' class='fa fa-pencil'></i></a></td><td><a class='delete' id='"+val.productID+"' href='javascript:void(0)'><i title='Delete' class='fa fa-trash'></i></a></td>");
                       dataHandler.append(newRow).trigger('footable_redraw');
                   })
               }
@@ -256,7 +256,7 @@ $(document).ready(function() {
   // });
 
   // delete data bank
-  $(document).on('click', '.delete_bank',function(e){
+  $(document).on('click', '.delete',function(e){
       e.preventDefault(); /* prevent link address */
       var dataID = $(this).attr('id'); /* get data id */
 
@@ -271,9 +271,9 @@ $(document).ready(function() {
          e.preventDefault();
 
           $.ajax({
-              url     : 'function/bank/deleteDataBank.php',
+              url     : 'function/product/DeleteDataProduct.php',
               type    : 'POST',
-              data    : 'seller_bankID='+dataID,
+              data    : {productID : dataID},
               success : function(result){
                   var resultObj = JSON.parse(result);
                   console.log(result);

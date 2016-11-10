@@ -19,12 +19,12 @@ if (isset($_POST['bankName'])) {
 		$ownerName			= $_POST['ownerName'];
 		$amount 				= $_POST['amount'];
 
-		// if ($seller->checkBalance($sellerID) < $amount) {
-		// 		$result['error'] = 'Please, ensure your balance is available';
-		// 		echo json_encode($result);
-		// } else {
+		if ($seller->checkBalance($sellerID) < $amount) {
+				$result['error'] = 'Please, ensure your balance is available';
+				echo json_encode($result);
+		} else {
 			$seller->addWithdrawal($sellerID, $bankName, $accountNumber, $branch, $ownerName, $amount);
-		// }
+		}
 } else {
 		Redirect::to($home_url); // for direct acces to this file
 }

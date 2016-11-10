@@ -47,7 +47,7 @@ class Product
         ->join('product_images','product.productID','=','product_images.product_id')
         ->where('product.sellerID','=',$sellerID)
         ->where('product_images.status','=','main')
-        ->select('categories.categoryName, product.productName, product_images.image_name, product.productPrice, product.productQty, product.productWeight')
+        ->select('categories.categoryName, product.productID, product.productName, product_images.image_name, product.productPrice, product.productQty, product.productWeight')
         ->all();
 
         if ($result == null){
@@ -57,6 +57,20 @@ class Product
     } catch (Exception $e) {
         echo "Error" . $e->getMessage();
     }
+  }
 
+  // delete data product
+  public function DeleteDataProduct($productID)
+  {
+    try {
+        $user = $this->conn;
+        $user->setTable('product');
+        $result = $user->where('productID','=',$productID)->delete();
+
+        $result['valid'] = 'Data product has been delete!';
+        echo json_encode($result);
+    } catch (PDOException $e){
+        echo "Error :" .$e->message();
+    }
   }
 }
