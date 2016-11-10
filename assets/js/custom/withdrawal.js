@@ -5,7 +5,7 @@ $(document).ready(function() {
 			"enabled": true
 		}
 	});
-	
+
 	loadBank('select[name=seller_bankID]');
 	loadWithdrawal();
 
@@ -37,8 +37,11 @@ $(document).ready(function() {
 	function loadBank(){
 	 	$('input[name=accountNumber]').hide();
 	 	$('input[name=ownerName]').hide();
+		$('input[name=branch]').hide();
+		$('label[for=branch]').hide();
 	 	$('label[for=accountNumber]').hide();
 	 	$('label[for=ownerName]').hide();
+
 
 	 	var dataID = getCookie('id');
         //console.log(dataID);
@@ -90,8 +93,10 @@ $(document).ready(function() {
 	$('select[name=seller_bankID]').change(function(){
 	 	$('input[name=accountNumber]').show();
 	 	$('input[name=ownerName]').show();
+		$('input[name=branch]').show();
 	 	$('label[for=accountNumber]').show();
 	 	$('label[for=ownerName]').show();
+		$('label[for=branch]').show();
 	 	var bankSelect  = $('select[name=seller_bankID]').val();
 	 	//console.log(bankSelect);
 	 	selectDataBank(bankSelect);
@@ -113,11 +118,7 @@ $(document).ready(function() {
             validators: {
                 notEmpty: {
                     message: 'Amount is required'
-                },
-                greaterThan: {
-                value: 50000,
-                message: 'Minimal amount is 50.000'
-            }
+                }
             }
         }
     } // end fields
@@ -207,6 +208,10 @@ $(document).ready(function() {
     	console.log("error");
     });
   }
+
+	$('input[name=amount]').keyup(function(event) {
+		 $(this).val(number_format($(this).val()));
+	});
 
   function number_format(user_input){
     var filtered_number = user_input.replace(/[^0-9]/gi, '');

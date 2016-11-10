@@ -3,13 +3,12 @@ session_start();
 require_once '../../vendor/autoload.php';
 
 use Emall\Transaction\Withdrawal;
+use Emall\Transaction\Converter;
 use Emall\Auth\Redirect;
 use Emall\Auth\Session;
 
 $home_url = '../../../index.php';
 $seller 	= new Withdrawal;
-
-
 
 if (isset($_POST['bankName'])) {
 		$sellerID 			= Session::get('sellerSession');
@@ -17,7 +16,7 @@ if (isset($_POST['bankName'])) {
 		$accountNumber	= $_POST['accountNumber'];
 		$branch					= $_POST['branch'];
 		$ownerName			= $_POST['ownerName'];
-		$amount 				= $_POST['amount'];
+		$amount 				= (int)Converter::toInteger($_POST['amount']);
 
 		if ($seller->checkBalance($sellerID) < $amount) {
 				$result['error'] = 'Please, ensure your balance is available';

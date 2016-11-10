@@ -117,7 +117,7 @@
                                           </div>
                                           <div class="form-group">
                                             <label>Amount</label>
-                                            <input type="number" placeholder="Amount" name="amount" class="form-control">
+                                            <input type="text" placeholder="Amount" name="amount" class="form-control">
                                           </div>
                                           <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-add">OK</button>
                                           <button class="btn btn-sm btn-primary" type="submit" id="cancel-btn-withdrawal">Cancel</button>

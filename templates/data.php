@@ -4,14 +4,12 @@ require_once 'vendor/autoload.php';
 
 use Emall\Auth\Authentication;
 use Emall\Database\Database;
-use Emall\Transaction\Balance;
 use Emall\Auth\Redirect;
 
 
 // initialize classes
 $seller     = Database::getInstance();
 $log        = new Authentication;
-$sellerA    = new Balance;
 
 $id = $_SESSION['sellerSession'];
 

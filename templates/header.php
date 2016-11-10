@@ -131,10 +131,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <?php
-
-                                  $seller->setTable('seller_balance');
-                                  $balance_user = $seller->select()->where('sellerID','=',$id)->first();
-                                  $balanceConvert = $sellerA->convertToIDR($balance_user->balance);
+                                use Emall\Transaction\Converter;
+                                $seller->setTable('seller_balance');
+                                $balance_user = $seller->select()->where('sellerID','=',$id)->first();
+                                $balanceConvert = Converter::convertToIDR($balance_user->balance);
                             ?>
                             <a class="balance"><i>Balance : <span><?php echo $balanceConvert; ?></span></i></a>
                         </li>

@@ -6,7 +6,12 @@ use Emall\Auth\Authentication as Auth;
 use Emall\Auth\Redirect;
 use Emall\Transaction\Balance;
 
-Balance::checkBalance(88);
+// $b = new Balance;
+// echo $b->checkBalance(88);
+$string = '1.000.000';
+$a = str_replace(".","",$string);
+echo $a;
+var_dump((int)$a);
 
   //
   //   $mail = new PHPMailer;

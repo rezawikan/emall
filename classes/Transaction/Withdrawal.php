@@ -70,6 +70,19 @@ class Withdrawal
 		}
 	}
 
+	//  check available balance
+	public function checkBalance($sellerID)
+	{
+		try {
+				$user = $this->conn;
+				$user->setTable('seller_balance');
+				$result = $user->select('balance')->where('sellerID','=', $sellerID)->first();
+				return $result->balance;
+		}catch(PDOException $e){
+			echo "Error : ".$e->getMessage();
+		}
+	}
+
 	// get details data withdrawals
 	public function getDataWithdrawal($sellerID)
 	{
@@ -83,19 +96,6 @@ class Withdrawal
 			echo json_encode($result);
 		} catch (PDOException $e) {
 				echo "Error :".$e->Message();
-		}
-	}
-
-	//  check available balance
-	public function checkBalance($sellerID)
-	{
-		try {
-				$user = $this->conn;
-				$user->setTable('seller_balance');
-				$result = $user->select('balance')->where('sellerID','=', $sellerID)->first();
-				return $result->balance;
-		}catch(PDOException $e){
-			echo "Error : ".$e->getMessage();
 		}
 	}
 }
