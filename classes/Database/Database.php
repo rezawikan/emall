@@ -1,7 +1,9 @@
 <?php
 
 namespace Emall\Database;
+
 use PDO;
+
 class Database
 {
 
@@ -190,7 +192,7 @@ class Database
 
   public function limit($num)
   {
-    $this->_attr .= "LIMIT $num";
+    $this->_attr .= " LIMIT $num";
     return $this;
   }
 
@@ -232,4 +234,5 @@ class Database
     $this->_query .= "SELECT $columns FROM $this->table LEFT JOIN $table ON $first_col $sign $second_col UNION ALL SELECT $columns FROM $this->table RIGHT JOIN $table ON $first_col $sign $second_col";
     return $this;
   }
+
 }

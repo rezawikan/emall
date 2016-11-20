@@ -2,16 +2,69 @@
 session_start();
 require_once 'vendor/autoload.php';
 
-use Emall\Auth\Authentication as Auth;
-use Emall\Auth\Redirect;
-use Emall\Transaction\Balance;
+use Emall\Pagination\Pagination;
+use Emall\Auth\Session;
+use Emall\Auth\Filter;
+
+$page     = new Pagination;
+$sellerID = Session::get('sellerSession');
+//
+// echo $page->paginate_function(24,1 ,10 , 1);
+//
+// echo $a = strlen('Many desktop publishing packages and web page editors example for description');
+
+
+echo date_format(new DateTime(), 'Y-m-d H:i:s');
+$f ;
+echo $f ?? 'dika';
+
+// use Emall\Auth\Authentication as Auth;
+// use Emall\Auth\Redirect;
+// use Emall\Transaction\Balance;
+// use Emall\Database\Database;
+// use Emall\Product\Product;
+//
+// // $delete = new Product;
+// // $delete->DeleteDataProduct('61');
+// $page_position = 1;
+// $item_per_page = 25;
+//
+// $user = Database::getInstance();
+//
+// $user->setTable('product');
+// $result = $user->select()->orderBy('productID','ASC')->limit('0,25')->all();
+//
+// var_dump($result);
+
+
+// $user->setTable('product');
+// $user->select('(*)','COUNT')->orderBY('id','ASC')->limit($page_position . ',' . $item_per_page)->first();
+// echo $user;
+
+// echo Math.floor("123");
+//
+// $user = Database::getInstance();
+//
+// $user->setTable('sub_categories');
+// $result = $user->select()->where('subcategoriesID','=',21)->first();
+// $user->setTable('categories');
+// $result = $user->join('sub_categories','categories.categoriesID','=','sub_categories.categoriesID')
+// ->join('product','sub_categories.subcategoriesID','=','product.subcategoriesID')
+// ->join('product_images','product.productID','=','product_images.product_id')
+// ->where('product.sellerID','=',88)
+// ->where('product_images.status','=','main')
+// ->select('categories.categoryName, product.productID, product.productName, product_images.image_name, product.productPrice, product.productQty, product.productWeight')
+// ->orderBy('productID','DESC')
+// ->all();
+
+// var_dump($result);
 
 // $b = new Balance;
 // echo $b->checkBalance(88);
-$string = '1.000.000';
-$a = str_replace(".","",$string);
-echo $a;
-var_dump((int)$a);
+// $string = '1.000.000';
+// $a = str_replace(".","",$string);
+// echo $a;
+// var_dump((int)$a);
 
   //
   //   $mail = new PHPMailer;
@@ -245,3 +298,4 @@ var_dump((int)$a);
 // }
 //
 // echo generateRandomString(12);
+?>

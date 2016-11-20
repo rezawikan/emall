@@ -663,7 +663,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .btn-primary.active:focus {
   background-color: #18a689;
   border-color: #18a689;
-  color: #1ab394;
+  color: #FFFFFF;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -6690,6 +6690,13 @@ body.landing-page {
   /* RESPONSIVE CSS
   -------------------------------------------------- */
 }
+.landing-page .padding-btn{
+  padding: 9px 15px;
+}
+.landing-page .flexs {
+  display: flex;
+  flex-wrap: wrap;
+}
 .landing-page .distance-top{
   margin-top: 10px;
 }
@@ -6701,6 +6708,15 @@ body.landing-page {
 }
 .landing-page .distance-bottom{
   margin-bottom: 10px;
+}
+.landing-page .distance-bottom-more{
+  margin-bottom: 30px;
+}
+.landing-page .distance-bottom-image{
+  margin-bottom: 60px;
+}
+.landing-page .distance-top-image{
+  margin-top: 60px;
 }
 .landing-page span.navy {
   color: #1ab394;
@@ -7207,14 +7223,6 @@ body.landing-page {
 .landing-page .btn-danger.btn-outline:hover {
   color: #fff;
 }
-.landing-page .btn-primary {
-  background-color: #1ab394;
-  border-color: #1ab394;
-  color: #FFFFFF;
-  font-size: 14px;
-  padding: 8px 23px;
-  font-weight: 600;
-}
 .landing-page .btn-primary:hover,
 .landing-page .btn-primary:focus,
 .landing-page .btn-primary:active,
@@ -7246,6 +7254,20 @@ body.landing-page {
 .landing-page fieldset[disabled] .btn-primary.active {
   background-color: #1dc5a3;
   border-color: #1dc5a3;
+}
+
+/*product details*/
+.landing-page .text-muted p, li {
+  color: black;
+}
+/*product details*/
+.landing-page .details {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 5px 15px;
+  font-weight: 600;
 }
 .landing-page .product-imitation {
   text-align: center;

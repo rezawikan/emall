@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825
 {
     public static $prefixLengthsPsr4 = array (
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'E' => 
         array (
             'Emall\\' => 6,
@@ -14,9 +18,23 @@ class ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825
     );
 
     public static $prefixDirsPsr4 = array (
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
         'Emall\\' => 
         array (
             0 => __DIR__ . '/../..' . '/classes',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
         ),
     );
 
@@ -36,6 +54,7 @@ class ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit70fa66b3060a536a6f7ab3dfed14d825::$classMap;
 
         }, null, ClassLoader::class);

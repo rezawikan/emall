@@ -1,7 +1,9 @@
 <?php
 
 namespace Emall\Transaction;
+
 use PDO;
+use DateTime;
 use Emall\Database\Database;
 
 class Withdrawal
@@ -49,7 +51,7 @@ class Withdrawal
 	}
 
 	// request withdrawal
-	public function addWithdrawal($sellerID, $bankName, $accountNumber, $branch, $ownerName, $amount)
+	public function AddDataWithdrawal($sellerID, $bankName, $accountNumber, $branch, $ownerName, $amount)
 	{
 		try {
 				$user = $this->conn;
@@ -60,7 +62,8 @@ class Withdrawal
 					'accountNumber' => $accountNumber,
 					'branch' 				=> $branch,
 					'ownerName'			=> $ownerName,
-					'amount'				=> $amount
+					'amount'				=> $amount,
+					'create_at' 		=> date_format(new DateTime(), 'Y-m-d H:i:s')
 				]);
 
 				$result['valid'] = 'Withdrawal has created, we will take a process a few hours';
@@ -84,12 +87,12 @@ class Withdrawal
 	}
 
 	// get details data withdrawals
-	public function getDataWithdrawal($sellerID)
+	public function ViewDataWithdrawal($sellerID)
 	{
 		try {
 				$user =$this->conn;
 				$user->setTable('withdrawal');
-				$result = $user->select()->Where('sellerID','=',$sellerID)->all();
+				$result = $user->select()->Where('sellerID','=',$sellerID)->orderBy('update_at','DESC')->all();
 				if ($result == null) {
 						$result['empty'] = 'Kosong';
 				}

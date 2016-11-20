@@ -30,6 +30,9 @@
     <!-- FooTable -->
     <link rel="stylesheet" href="assets/css/plugins/footable/footable.core.css">
 
+    <!-- Markdown -->
+    <link rel="stylesheet" href="assets/css/plugins/markdown/bootstrap-markdown.min.css">
+
 </head>
 
 <?php require_once 'templates/header.php'; ?>
@@ -54,10 +57,12 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div>
-                    <a id="add" class="btn btn-primary distance-top" href="add_product.php" >Add Product</a>
+                    <a id="add" data-toggle="modal" class="btn btn-primary distance-top padding-btn" href="#modal-form-add">Add Product</a>
                     <p id='message'></p>
                 </div>
-                  <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10">
+                <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search Product">
+
+                  <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10" data-filter=#filter>
                     <thead>
                       <tr>
                           <th>No</th>
@@ -67,7 +72,7 @@
                           <th>Price</th>
                           <th>Quantity</th>
                           <th>Weight</th>
-                          <th colspan="2">Action</th>
+                          <th colspan="3">Action</th>
                       </tr>
                       </thead>
                       <tbody id="table-products">
@@ -84,6 +89,55 @@
         </div>
     </div>
 
+    <!-- Start Modals Form Add Data Bank -->
+    <div id="modal-form-add" class="modal fade" aria-hidden="true" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12"><h3 class="m-t-none m-b">Bank Account</h3>
+                                        <p>Make sure your bank account</p>
+
+                                        <form role="form" id="form-data-add" method="POST">
+
+                                          <!-- Form Data Product -->
+                                          <?php include 'templates/part/form-data-product.php'; ?>
+
+                                          <button class="btn btn-sm btn-primary ladda-button padding-btn" data-style="expand-right" type="submit" name="submit-btn-add">OK</button>
+                                          <button id="cancel-btn-add" class="btn btn-sm btn-primary padding-btn" type="submit">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!--End Modals Form Add Data Bank-->
+
+    <!-- Start Modals Update Form Bank -->
+    <div id="modal-form-update" class="modal fade" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12"><h3 class="m-t-none m-b">Edit Product</h3>
+                                        <p>Make sure your product</p>
+
+                                        <form role="form" id="form-data-update" method="POST">
+
+                                          <!-- Form Data Product -->
+                                          <?php include 'templates/part/form-data-product.php'; ?>
+
+                                          <button class="btn btn-sm btn-primary ladda-button padding-btn" data-style="expand-right" type="submit" name="submit-btn-update">OK</button>
+                                          <button id="cancel-btn-update" class="btn btn-sm btn-primary padding-btn" type="submit">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!--End Modals Update Form Bank-->
 
     <!-- Starts Modals Confirmation Delete -->
     <div id="modal-form-delete" class="modal fade" aria-hidden="true">
@@ -94,8 +148,8 @@
                         <div class="col-sm-12"><h3 class="m-t-none m-b">Delete Confirmation</h3>
                         <div id="confirm"></div>
                             <div>
-                              <button id="sure" type="button" class="btn btn-primary">Ok</button>
-                              <button id="cancel" type="button" class="btn btn-primary">Cancel</button>
+                              <button id="sure" type="button" class="btn btn-primary padding-btn">Ok</button>
+                              <button id="cancel" type="button" class="btn btn-primary padding-btn">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -130,6 +184,11 @@
 
 <!-- FooTable -->
 <script src="assets/js/plugins/footable/footable.all.min.js"></script>
+
+<!-- Markdown Js -->
+<script src="assets/js/plugins/markdown/bootstrap-markdown.js"></script>
+<script src="assets/js/plugins/markdown/markdown.js"></script>
+<script src="assets/js/plugins/markdown/to-markdown.js"></script>
 
 <!-- Handle CRUD Data Bank -->
 <script src="assets/js/custom/manage_products.js"></script>

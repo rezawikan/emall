@@ -27,6 +27,7 @@ class ImagesProfile extends FileUploader
    $this->saveToSeller();
    $this->DeletePrevImage();
    $this->MoveFiles();
+   $this->flush();
  }
 
  protected function getImageNameProfile()

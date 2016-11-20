@@ -8,18 +8,18 @@ use Emall\Auth\Redirect;
 $seller   = new Bank();
 $home_url = '../../index.php';
 
-if(isset($_POST['Useller_bankID'],
-         $_POST['UbankID'],
-         $_POST['UaccountNumber'],
-         $_POST['UownerName'],
-         $_POST['Ubranch'])
+if(isset($_POST['seller_bankID'],
+         $_POST['bankID'],
+         $_POST['accountNumber'],
+         $_POST['ownerName'],
+         $_POST['branch'])
   ) {
-    $seller_bankID  = $_POST['Useller_bankID'];
-    $bankID         = $_POST['UbankID'];
-    $accountNumber  = $_POST['UaccountNumber'];
-    $ownerName      = $_POST['UownerName'];
-    $branch         = $_POST['Ubranch'];
-    $seller->updateBank($seller_bankID, $bankID, $accountNumber, $ownerName, $branch);
+    $seller_bankID  = $_POST['seller_bankID'];
+    $bankID         = $_POST['bankID'];
+    $accountNumber  = $_POST['accountNumber'];
+    $ownerName      = $_POST['ownerName'];
+    $branch         = $_POST['branch'];
+    $seller->UpdateDataBank($seller_bankID, $bankID, $accountNumber, $ownerName, $branch);
 } else {
     Redirect::to($home_url); // for direct acces to this file
 }

@@ -119,7 +119,7 @@
                                             <label>Amount</label>
                                             <input type="text" placeholder="Amount" name="amount" class="form-control">
                                           </div>
-                                          <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-add">OK</button>
+                                          <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="submit-btn-add">OK</button>
                                           <button class="btn btn-sm btn-primary" type="submit" id="cancel-btn-withdrawal">Cancel</button>
                                         </form>
                                     </div>

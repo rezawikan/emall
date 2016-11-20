@@ -32,14 +32,14 @@
                             $seller->setTable('sub_categories');
                             $sub_categories = $seller->join('product','sub_categories.subcategoriesID','=','product.subcategoriesID')
                             ->where('categoriesID','=',$category->categoriesID)
-                            ->select('sub_categories.subName','DISTINCT')
+                            ->select('sub_categories.subName, sub_categories.subcategoriesID','DISTINCT')
                             ->all();
                             if ($sub_categories != null) {
                                 echo "<li class='dropdown-submenu'><a tabindex='-1' href='#'>{$category->categoryName}<span class='glyphicon glyphicon-adjust'></span></a>";
                                 if ($sub_categories != null) {
                                   echo "<ul class='dropdown-menu'>";
                                   foreach ($sub_categories as $key => $value) {
-                                    echo "<li class='dropdown-submenu'><a href='#'>{$value->subName}</a></li>";
+                                    echo "<li class='dropdown-submenu'><a href='product.php?subcategories={$value->subcategoriesID}'>{$value->subName}</a></li>";
                                   }
                                   echo "</li></ul>";
                                 }
@@ -49,21 +49,6 @@
                             }
                           }
                             ?>
-
-                            <!-- <li class="dropdown-submenu">
-                              <a tabindex="-1" href="#">apa</a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Book</a></li>
-                                <li><a href="#">Electronic</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Food</a></li>
-                              </ul>
-                            </li>
-                            <li><a class="page-scroll" href="#">Electronic</a></li>
-                            <li><a class="page-scroll" href="#">Food</a></li>
-                            <li><a class="page-scroll" href="#">Food</a></li>
-                            <li><a class="page-scroll" href="#">Food</a></li> -->
                           </ul>
                         </li>
 
@@ -117,7 +102,7 @@
                           </ul>
                       </li>
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user->firstName.' '.$user->lastName;?> <span class="caret"></span></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user->fullName; ?> <span class="caret"></span></a>
                           <ul class="dropdown-menu ">
                             <li><a class="" href="profile.php">Profile</a></li>
                             <li><a class="" href="manage_products.php">Manage Products</a></li>
@@ -139,9 +124,9 @@
                             <a class="balance"><i>Balance : <span><?php echo $balanceConvert; ?></span></i></a>
                         </li>
                     </ul>
-                    <form class="form-horizontal" role="search">
-                        <div class="col-md-6 col-sm-5 col-xs-8">
-                          <input class="form-control" placeholder="Search Your Products" type="text">
+                    <form class="form-horizontal " role="search">
+                        <div class="col-md-6 col-sm-4 col-xs-8">
+                          <input class="form-control center-block" placeholder="Search Your Products" type="text">
                         </div>
                     </form>
                 </div>

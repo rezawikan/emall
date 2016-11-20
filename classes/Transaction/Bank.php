@@ -1,7 +1,10 @@
 <?php
 
 namespace Emall\Transaction;
+
 use PDO;
+use DateTime;
+use Emall\Auth\Session;
 use Emall\Database\Database;
 
 class Bank
@@ -14,7 +17,7 @@ class Bank
 	}
 
 	// add data bank
-	public function addBank($sellerID, $bankID, $accountNumber, $ownerName, $branch)
+	public function AddDataBank($sellerID, $bankID, $accountNumber, $ownerName, $branch)
 	{
 		try {
 				$user = $this->conn;
@@ -24,7 +27,8 @@ class Bank
 					'bankID'				=> $bankID,
 					'accountNumber'	=> $accountNumber,
 					'ownerName'			=> $ownerName,
-					'branch'				=> $branch
+					'branch'				=> $branch,
+					'create_at' 		=> date_format(new DateTime(), 'Y-m-d H:i:s')
 				]);
 
 		    $result['valid'] = 'Data bank successfully saved';
@@ -35,7 +39,7 @@ class Bank
 	}
 
 	// get data seller bank
-	public function getDataBank($seller_bankID)
+	public function EditDataBank($seller_bankID)
 	{
 		try {
 				$user = $this->conn;
@@ -50,7 +54,7 @@ class Bank
 	}
 
 	// update data seller bank
-	public function updateBank($seller_bankID, $bankID, $accountNumber, $ownerName, $branch)
+	public function UpdateDataBank($seller_bankID, $bankID, $accountNumber, $ownerName, $branch)
 	{
 		try {
 				$user = $this->conn;
@@ -71,7 +75,7 @@ class Bank
 	}
 
 	// delete bank account
-	public function deleteBank($seller_bankID)
+	public function DeleteDataBank($seller_bankID)
 	{
 		try {
 				$user = $this->conn;
@@ -86,7 +90,7 @@ class Bank
 	}
 
 	// get details seller data bank
-	public function getAllDataBank($sellerID)
+	public function ViewDataBank($sellerID)
 	{
 		try {
 				$user = $this->conn;

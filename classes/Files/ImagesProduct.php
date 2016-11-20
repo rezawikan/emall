@@ -2,6 +2,7 @@
 
 namespace Emall\Files;
 
+use DateTime;
 use Emall\Files\FileUploader;
 
 class ImagesProduct extends FileUploader
@@ -19,23 +20,56 @@ class ImagesProduct extends FileUploader
 
  */
  protected $conn;
- 
- public function uploadImageProduct($lastID,$index)
+
+ public function uploadImageProduct($productID,$index)
  {
    $this->setDestination();
-   $this->dataImage = $this->fileNameProduct($lastID,$index);
-   $this->saveToProduct($lastID);
+   $this->dataImage = $this->fileNameProduct($productID,$index);
+   $this->saveToProduct($productID);
    $this->DeletePrevImage();
    $this->deleteFromDatabase($this->dataImage);
    $this->MoveFiles();
  }
 
- public function fileNameProduct($lastID,$index)
+ public function updateImageProduct($productID,$index)
+ {
+   $this->setDestination();
+   $this->dataImage = $this->fileNameProduct($productID,$index);
+   $this->DeletePrevImage();
+   $this->updateImage($this->dataImage);
+   $this->MoveFiles();
+ }
+
+ public function updateImage($imageName)
  {
    try {
         $user = $this->conn;
         $user->setTable('product_images');
-        $result = $user->select('image_name')->where('product_id','=',$lastID)->all();
+        $result = $user->where('image_name','=',$imageName)
+        ->update([
+          'image_name'  => $this->fileName,
+          'image_path'   => $this->destination
+        ]);
+
+   } catch (PDOException $e) {
+     echo "Error : ".$e->getMessage();
+   }
+ }
+
+ public function deletePrevImageProduct($productID,$index)
+ {
+   $this->setDirectory('uploads/product/');
+   $this->dataImage = $this->fileNameProduct($productID,$index);
+   $this->DeletePrevImage();
+ }
+
+//99 0
+ public function fileNameProduct($productID,$index)
+ {
+   try {
+        $user = $this->conn;
+        $user->setTable('product_images');
+        $result = $user->select('image_name')->where('product_id','=',$productID)->all();
         foreach ($result as $i => $image) {
           if ($i == $index) {
             return $image->image_name;
@@ -58,21 +92,21 @@ class ImagesProduct extends FileUploader
    } catch (Exception $e) {
      echo "Error : ".$e->getMessage();
    }
-
  }
 
- public function saveToProduct($lastID)
+ public function saveToProduct($productID)
  {
    try {
        $user = $this->conn;
        $user->setTable('product_images');
        $user->create([
          'image_name' => $this->fileName,
-         'product_id' => $lastID,
-         'image_path' => $this->destination
+         'product_id' => $productID,
+         'image_path' => $this->destination,
+         'create_at'  => date_format(new DateTime(), 'Y-m-d H:i:s')
        ]);
 
-       $this->lastIDImage = $user->lastID();
+      //  $this->lastIDImage = $user->lastID();
    } catch (PDOException $e) {
      echo "Error : ".$e->getMessage();
    }
@@ -83,7 +117,7 @@ class ImagesProduct extends FileUploader
    try {
        $user = $this->conn;
        $user->setTable('product_images');
-       $user->where('id','=',$this->lastIDImage)->update([
+       $user->where('image_name','=',$this->fileName)->update([
          'status' => $this->status
        ]);
        return true;

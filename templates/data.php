@@ -20,3 +20,4 @@ if (!$log->is_logged_in()) {
 // get data users
 $seller->setTable('seller');
 $user = $seller->select()->where('sellerID','=',$id)->first();
+$user->fullName = $user->firstName . ' ' .$user->lastName;

@@ -85,83 +85,56 @@
 
     <!-- Start Modals Form Add Data Bank -->
     <div id="modal-form-add" class="modal fade" aria-hidden="true" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-12"><h3 class="m-t-none m-b">Bank Account</h3>
-                                        <p>Make sure your bank account</p>
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-sm-12"><h3 class="m-t-none m-b">Bank Account</h3>
+                          <p>Make sure your bank account</p>
 
-                                        <form role="form" id="form-data-add" method="POST">
-                                            <input type="hidden" value="<?php echo $id;?>" name="sellerID" class="form-control">
-                                            <div class="form-group"><label>Bank Name</label>
-                                                <select id="bankID" class="form-control m-b" name="bankID" id="bankID">
-                                                    <option value="">Select</option>
-                                                <?php
+                          <form role="form" id="form-data-add" method="POST">
 
-                                                    $seller->setTable('bank');
-                                                    $banks = $seller->select()->all();
-                                                    foreach ($banks as $bank) {
-                                                ?>
-                                                    <option value="<?php echo $bank->bankID; ?>"><?php echo $bank->bankName; ?></option>
-                                                <?php
-                                                    }
-                                                ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group"><label>Account Number</label> <input type="text" placeholder="Account Number" name="accountNumber" class="form-control"></div>
-                                            <div class="form-group"><label>Owner Name</label> <input type="text" placeholder="Owner Name" name="ownerName" class="form-control"></div>
-                                            <div class="form-group"><label>Branch</label> <input type="text" placeholder="Branch" name="branch" class="form-control"></div>
-                                            <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-add">OK</button>
-                                            <button id="cancel-btn-add" class="btn btn-sm btn-primary " type="submit">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Form Data Bank -->
+                            <?php include 'templates/part/form-data-bank.php'; ?>
+
+                          <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="submit-btn-add">OK</button>
+                          <button id="cancel-btn-add" class="btn btn-sm btn-primary " type="submit">Cancel</button>
+                          </form>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
     <!--End Modals Form Add Data Bank-->
 
     <!-- Start Modals Update Form Bank -->
     <div id="modal-form-update" class="modal fade" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-12"><h3 class="m-t-none m-b">Edit Bank Account</h3>
-                                        <p>Make sure your bank account</p>
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-sm-12"><h3 class="m-t-none m-b">Edit Bank Account</h3>
+                          <p>Make sure your bank account</p>
 
-                                        <form role="form" id="form-data-update" method="POST">
-                                            <input type="hidden" name="Useller_bankID" class="form-control">
-                                            <input type="hidden" name="UsellerID" class="form-control">
-                                            <div class="form-group"><label>Bank Name</label>
-                                                <select class="form-control m-b" name="UbankID" id="UbankID">
-                                                <option value="">Select</option>
-                                                <?php
-                                                    foreach ($banks as $bank) {
-                                                ?>
-                                                    <option value="<?php echo $bank->bankID; ?>"><?php echo $bank->bankName; ?></option>
-                                                <?php
-                                                    }
-                                                ?>
-                                                </select>
-                                            </div>
-                                            <div id="UaccountNumber-group" class="form-group"><label>Account Number</label> <input type="text" placeholder="Account Number" name="UaccountNumber" class="form-control"></div>
-                                            <div id="UownerName-group" class="form-group"><label>Owner Name</label> <input type="text" placeholder="Owner Name" name="UownerName" class="form-control"></div>
-                                            <div id="Ubranch-group" class="form-group"><label>Branch</label> <input type="text" placeholder="Branch" name="Ubranch" class="form-control"></div>
-                                            <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="btn-update">Update</button>
-                                            <button class="btn btn-sm btn-primary" type="reset">Reset</button>
-
-
-                                        </form>
-                                    </div>
-                                </div>
+                          <form role="form" id="form-data-update" method="POST">
+                            <div id="seller_bankID" class="form-group">
+                              <label for="">Seller Bank ID</label>
+                              <input type="text" class="form-control" name="seller_bankID">
                             </div>
+
+                            <!-- Form Data Bank -->
+                            <?php include 'templates/part/form-data-bank.php'; ?>
+
+                            <button class="btn btn-sm btn-primary ladda-button" data-style="expand-right" type="submit" name="submit-btn-update">Update</button>
+                            <button class="btn btn-sm btn-primary" type="reset">Reset</button>
+                          </form>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
     <!--End Modals Update Form Bank-->
 
     <!-- Starts Modals Confirmation Delete -->

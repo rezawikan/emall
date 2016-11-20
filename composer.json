@@ -3,6 +3,8 @@
     "psr-4" : {"Emall\\": "classes/"}
   },
   "require": {
-    "phpmailer/phpmailer": "^5.2"
+    "phpmailer/phpmailer": "^5.2",
+    "fzaninotto/faker": "^1.6",
+    "erusev/parsedown": "^1.6"
   }
 }

@@ -1,22 +1,22 @@
 <section id="features" class="container services">
     <div class="row">
         <div class="col-sm-3">
-            <img width="170" src="assets/img/guarantee.png" alt="Guarante">
+            <img width="120" src="assets/img/guarantee.png" alt="Guarante">
             <h2>Guarante 100%</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
         <div class="col-sm-3">
-            <img width="170" src="assets/img/secure.png" alt="Secure">
+            <img width="120" src="assets/img/secure.png" alt="Secure">
             <h2>Secure</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
         <div class="col-sm-3">
-            <img width="170" src="assets/img/easy-payment.png" alt="Easy Payment">
+            <img width="120" src="assets/img/easy-payment.png" alt="Easy Payment">
             <h2>Easy Payment</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
         <div class="col-sm-3">
-            <img width="170" src="assets/img/verified.png" alt="Verified">
+            <img width="120" src="assets/img/verified.png" alt="Verified">
             <h2>Verified Seller</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
